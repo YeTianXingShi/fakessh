@@ -1,0 +1,9 @@
+.git
+.gitdata
+.agents
+.codex
+*.db
+*.db-shm
+*.db-wal
+data
+/fakessh

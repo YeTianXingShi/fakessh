@@ -1,0 +1,12 @@
+{{define "dashboard.html"}}<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{{.Title}} · FakeSSH</title><link rel="stylesheet" href="/static/style.css"></head>
+<body><header><div><a class="brand" href="/">FakeSSH</a><span class="tag">live honeypot telemetry</span></div><nav><a class="active" href="/">Dashboard</a><a href="/attempts">Credentials</a><a href="/sources">Sources</a></nav></header>
+<main>
+<section class="warning">This dashboard is intentionally public and displays captured credentials in clear text.</section>
+<section class="metrics"><article><span>Total attempts</span><strong>{{.Stats.TotalAttempts}}</strong></article><article><span>Unique credentials</span><strong>{{.Stats.UniqueCredentials}}</strong></article><article><span>Unique source IPs</span><strong>{{.Stats.UniqueIPs}}</strong></article></section>
+<section class="grid">
+<article class="panel wide"><h2>Attempts by hour</h2><div class="trend">{{range .Stats.Trend}}<div><time>{{.Label}}</time><strong>{{.Count}}</strong></div>{{else}}<p class="empty">No authentication attempts recorded yet.</p>{{end}}</div></article>
+<article class="panel"><h2>Top usernames</h2><ol class="ranking">{{range .Stats.TopUsers}}<li><code>{{.Label}}</code><b>{{.Count}}</b></li>{{else}}<li class="empty">No data</li>{{end}}</ol></article>
+<article class="panel"><h2>Top passwords</h2><ol class="ranking">{{range .Stats.TopPasswords}}<li><code>{{.Label}}</code><b>{{.Count}}</b></li>{{else}}<li class="empty">No data</li>{{end}}</ol></article>
+<article class="panel"><h2>Top source IPs</h2><ol class="ranking">{{range .Stats.TopIPs}}<li><code>{{.Label}}</code><b>{{.Count}}</b></li>{{else}}<li class="empty">No data</li>{{end}}</ol></article>
+</section></main><footer>Passive collection only · data is retained until the volume is removed</footer></body></html>{{end}}

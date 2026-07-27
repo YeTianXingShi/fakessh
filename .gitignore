@@ -1,0 +1,6 @@
+.gitdata/
+/fakessh
+data/
+*.db
+*.db-shm
+*.db-wal

@@ -1,0 +1,20 @@
+services:
+  fakessh:
+    build: .
+    image: fakessh:local
+    container_name: fakessh
+    restart: unless-stopped
+    ports:
+      - "22:2222"
+      - "8080:8080"
+    volumes:
+      - fakessh-data:/data
+    environment:
+      LOG_LEVEL: info
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+
+volumes:
+  fakessh-data:
