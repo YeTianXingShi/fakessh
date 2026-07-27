@@ -44,6 +44,12 @@ docker run -d --name fakessh \
   ghcr.io/yetianxingshi/fakessh:latest
 ```
 
+生产部署也可以固定首个稳定版本，避免跟随 `latest` 自动升级：
+
+```bash
+docker pull ghcr.io/yetianxingshi/fakessh:1.0.0
+```
+
 默认映射：
 
 - 宿主机 `22` → 容器 SSH `2222`
@@ -133,5 +139,6 @@ docker build -t fakessh:local .
 
 - `ghcr.io/yetianxingshi/fakessh:latest`
 - `ghcr.io/yetianxingshi/fakessh:sha-<commit>`
+- `ghcr.io/yetianxingshi/fakessh:1.0.0`、`:1.0`、`:1`（当前稳定版）
 
-推送形如 `v1.2.3` 的 Git 标签还会生成 `1.2.3` 和 `1.2` 镜像标签。该仓库的 GHCR 软件包已设为公开，无需 GitHub 登录即可拉取。
+推送形如 `v1.2.3` 的 Git 标签会生成 `1.2.3`、`1.2` 和 `1` 镜像标签。该仓库的 GHCR 软件包已设为公开，无需 GitHub 登录即可拉取。
