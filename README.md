@@ -134,4 +134,4 @@ docker build -t fakessh:local .
 - `ghcr.io/yetianxingshi/fakessh:latest`
 - `ghcr.io/yetianxingshi/fakessh:sha-<commit>`
 
-推送形如 `v1.2.3` 的 Git 标签还会生成 `1.2.3` 和 `1.2` 镜像标签。GHCR 软件包在发布后由工作流设为公开；无需 GitHub 登录即可拉取。
+推送形如 `v1.2.3` 的 Git 标签还会生成 `1.2.3` 和 `1.2` 镜像标签。该仓库的 GHCR 软件包已设为公开，无需 GitHub 登录即可拉取。
